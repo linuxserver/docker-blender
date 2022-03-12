@@ -1,0 +1,29 @@
+---
+
+# jenkins variables
+project_name: docker-blender
+external_type: na
+custom_version_command: |
+  curl -sL https://mirror.clarkson.edu/blender/release/ | awk -F'"|/"' '/Blender[0-9].[0-9]/ && !/alpha/ && !/beta/ {print $2}' | awk '!/[a-c]/ && !/-/' | tail -1
+release_type: stable
+release_tag: latest
+ls_branch: master
+armhf_native: true
+repo_vars:
+  - BUILD_VERSION_ARG = 'BLENDER_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-blender'
+  - CONTAINER_NAME = 'blender'
+  - DOCKERHUB_IMAGE = 'linuxserver/blender'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/blender'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/blender'
+  - DIST_IMAGE = 'ubuntu'
+  - MULTIARCH = 'true'
+  - CI = 'true'
+  - CI_WEB = 'true'
+  - CI_PORT = '3000'
+  - CI_SSL = 'false'
+  - CI_DELAY = '120'
+  - CI_DOCKERENV = 'TZ=US/Pacific'
+  - CI_AUTH = 'user:password'
+  - CI_WEBPATH = ''
