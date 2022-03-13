@@ -14,7 +14,9 @@ RUN \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
+    ocl-icd-libopencl1 \
     xz-utils && \
+  ln -s libOpenCL.so.1 /usr/lib/x86_64-linux-gnu/libOpenCL.so && \
   echo "**** install blender ****" && \
   mkdir /blender && \
   if [ -z ${BLENDER_VERSION+x} ]; then \
