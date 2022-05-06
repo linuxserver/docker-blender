@@ -104,7 +104,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sL https://mirror.clarkson.edu/blender/source/ | awk -F'"|/"' '/blender-[0-9]*\.[0-9]*\.[0-9]*\.tar\.xz/ && !/md5sum/ {print $2}' | tail -1 | sed 's|blender-||' | sed 's|\.tar\.xz||' ''',
+            script: ''' curl -sL https://mirror.clarkson.edu/blender/source/ | awk -F'"|/"' '/blender-[0-9]*\\.[0-9]*\\.[0-9]*\\.tar\\.xz/ && !/md5sum/ {print $2}' | tail -1 | sed 's|blender-||' | sed 's|\\.tar\\.xz||' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
