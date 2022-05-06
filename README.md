@@ -92,6 +92,8 @@ We automatically add the necessary environment variable that will utilise all th
 
 Arm devices can run this image, but generally should not mount in /dev/dri. The OpenGL ES version is not high enough to run Blender. The program can run on these platforms though, leveraging CPU LLVMPipe rendering.
 
+Due to lack of arm32/64 binaries from the upstream project, our arm32/64 images install the latest version from the ubuntu repo, which is usually behind and thus the version the image is tagged with does not match the version contained.
+
 #### Keyboard Layouts
 
 This should match the layout on the computer you are accessing the container from.
@@ -283,4 +285,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **06.05.22:** - Use the full semver version in image tags. Arm32/64 version tags are inaccurate due to installing from ubuntu repo, which is usually behind.
 * **12.03.22:** - Initial Release.

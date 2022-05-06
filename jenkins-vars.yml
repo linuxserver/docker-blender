@@ -3,8 +3,8 @@
 # jenkins variables
 project_name: docker-blender
 external_type: na
-custom_version_command: |
-  curl -sL https://mirror.clarkson.edu/blender/release/ | awk -F'"|/"' '/Blender[0-9].[0-9]/ && !/alpha/ && !/beta/ {print $2}' | awk '!/[a-c]/ && !/-/' | tail -1
+custom_version_command: |-
+  curl -sL https://mirror.clarkson.edu/blender/source/ | awk -F'"|/"' '/blender-[0-9]*\\.[0-9]*\\.[0-9]*\\.tar\\.xz/ && !/md5sum/ {print $2}' | tail -1 | sed 's|blender-||' | sed 's|\\.tar\\.xz||'
 release_type: stable
 release_tag: latest
 ls_branch: master

@@ -20,18 +20,18 @@ RUN \
   echo "**** install blender ****" && \
   mkdir /blender && \
   if [ -z ${BLENDER_VERSION+x} ]; then \
-    BLENDER_VERSION=$(curl -sL https://mirror.clarkson.edu/blender/release/ | \
-    awk -F'"|/"' '/Blender[0-9].[0-9]/ && !/alpha/ && !/beta/ {print $2}' | \
-    awk '!/[a-c]/ && !/-/' | \
-    tail -1); \
+    BLENDER_VERSION=$(curl -sL https://mirror.clarkson.edu/blender/source/ \
+      | awk -F'"|/"' '/blender-[0-9]*\.[0-9]*\.[0-9]*\.tar\.xz/ && !/md5sum/ {print $2}' \
+      | tail -1 \
+      | sed 's|blender-||' \
+      | sed 's|\.tar\.xz||'); \
   fi && \
-  FILENAME=$(curl -sL https://mirror.clarkson.edu/blender/release/${BLENDER_VERSION}/ | \
-  awk -F'"|"' '/linux-x64/ {print $2}') && \
+  BLENDER_FOLDER=$(echo "Blender${BLENDER_VERSION}" | sed -r 's|(Blender[0-9]*\.[0-9]*)\.[0-9]*|\1|') && \
   curl -o \
-  /tmp/${FILENAME} -L \
-    "https://mirror.clarkson.edu/blender/release/${BLENDER_VERSION}/${FILENAME}" && \
+    /tmp/blender.tar.xz -L \
+    "https://mirror.clarkson.edu/blender/release/${BLENDER_FOLDER}/blender-${BLENDER_VERSION}-linux-x64.tar.xz" && \
   tar xf \
-    /tmp/${FILENAME} -C \
+    /tmp/blender.tar.xz -C \
     /blender/ --strip-components=1 && \
   ln -s \
     /blender/blender \
