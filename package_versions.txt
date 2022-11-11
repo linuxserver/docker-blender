@@ -361,7 +361,7 @@ mime-support3.64ubuntu1
 mount2.34-0.1ubuntu9.3
 ncurses-base6.2-0ubuntu2
 ncurses-bin6.2-0ubuntu2
-nodejs14.20.1-deb-1nodesource1
+nodejs14.21.1-deb-1nodesource1
 obconf1:2.0.4+git20150213-2
 ocl-icd-libopencl12.2.11-1ubuntu1
 openbox3.6.1-9ubuntu0.20.04.1
@@ -410,7 +410,7 @@ systemd-sysv245.4-4ubuntu3.18
 systemd-timesyncd245.4-4ubuntu3.18
 sysvinit-utils2.96-2.1ubuntu1
 tar1.30+dfsg-7ubuntu0.20.04.2
-tzdata2022c-0ubuntu0.20.04.0
+tzdata2022e-0ubuntu0.20.04.0
 ubuntu-keyring2020.02.11.4
 ubuntu-mono19.04-0ubuntu3
 ucf3.0038+nmu1
