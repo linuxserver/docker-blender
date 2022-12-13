@@ -285,5 +285,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **13.12.22:** - Rebase to Jammy, migrate to s6v3.
 * **06.05.22:** - Use the full semver version in image tags. Arm32/64 version tags are inaccurate due to installing from ubuntu repo, which is usually behind.
 * **12.03.22:** - Initial Release.
