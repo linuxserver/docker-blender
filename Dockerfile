@@ -1,4 +1,6 @@
-FROM ghcr.io/linuxserver/baseimage-rdesktop-web:focal
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-rdesktop-web:jammy
 
 # set version label
 ARG BUILD_DATE
@@ -47,4 +49,5 @@ COPY /root /
 
 # ports and volumes
 EXPOSE 3000
+
 VOLUME /config

@@ -97,5 +97,6 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "13.12.22:", desc: "Rebase to Jammy, migrate to s6v3." }
   - { date: "06.05.22:", desc: "Use the full semver version in image tags. Arm32/64 version tags are inaccurate due to installing from ubuntu repo, which is usually behind." }
   - { date: "12.03.22:", desc: "Initial Release." }
