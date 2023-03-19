@@ -8,7 +8,7 @@ custom_version_command: |-
 release_type: stable
 release_tag: latest
 ls_branch: master
-armhf_native: true
+build_armhf: false
 repo_vars:
   - BUILD_VERSION_ARG = 'BLENDER_VERSION'
   - LS_USER = 'linuxserver'
