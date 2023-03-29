@@ -23,7 +23,8 @@ NAME                                VERSION                                  TYP
 @tootallnate/once                   2.0.0                                    npm        
 @types/cookie                       0.4.1                                    npm        
 @types/cors                         2.8.13                                   npm        
-@types/node                         18.15.3                                  npm        
+@types/node                         18.15.10                                 npm        
+Cython                              0.29.30                                  python     
 GClient                             1.2.0                                    npm        
 PyGObject                           3.42.1                                   python     
 PyJWT                               2.3.0                                    python     
@@ -50,6 +51,7 @@ argparse                            1.2.1                                    pyt
 array-flatten                       1.1.1                                    npm        
 asap                                2.0.6                                    npm        
 async                               3.2.4                                    npm        
+autopep8                            1.6.0                                    python     
 balanced-match                      1.0.2                                    npm        
 base-files                          12ubuntu4.3                              deb        
 base-passwd                         3.5.52build1                             deb        
@@ -71,7 +73,9 @@ ca-certificates                     20211016ubuntu0.22.04.1                  deb
 cacache                             16.1.3                                   npm        
 call-bind                           1.0.2                                    npm        
 camelcase                           5.3.1                                    npm        
+certifi                             2021.10.8                                python     
 chalk                               4.1.2                                    npm        
+charset-normalizer                  2.0.10                                   python     
 chownr                              2.0.0                                    npm        
 cidr-regex                          3.1.1                                    npm        
 clean-stack                         2.2.0                                    npm        
@@ -101,7 +105,7 @@ cpp                                 4:11.2.0-1ubuntu1                        deb
 cpp-11                              11.3.0-1ubuntu1~22.04                    deb        
 cryptography                        3.4.8                                    python     
 cssesc                              3.0.0                                    npm        
-curl                                7.81.0-1ubuntu1.8                        deb        
+curl                                7.81.0-1ubuntu1.10                       deb        
 dash                                0.5.11+git20210903+057cd650a4ed-3build1  deb        
 dbus                                1.12.20-2ubuntu4.1                       deb        
 dbus-python                         1.2.18                                   python     
@@ -206,6 +210,7 @@ humanity-icon-theme                 0.6.16                                   deb
 humanize-ms                         1.2.1                                    npm        
 iconv-lite                          0.4.24                                   npm        
 iconv-lite                          0.6.3                                    npm        
+idna                                3.3                                      python     
 ignore-walk                         5.0.1                                    npm        
 importlib-metadata                  4.6.4                                    python     
 imurmurhash                         0.1.4                                    npm        
@@ -277,8 +282,8 @@ libcom-err2                         1.46.5-2ubuntu1.1                        deb
 libcrypt1                           1:4.4.27-1                               deb        
 libcryptsetup12                     2:2.4.3-1ubuntu1.1                       deb        
 libcups2                            2.4.1op1-1ubuntu4.1                      deb        
-libcurl3-gnutls                     7.81.0-1ubuntu1.8                        deb        
-libcurl4                            7.81.0-1ubuntu1.8                        deb        
+libcurl3-gnutls                     7.81.0-1ubuntu1.10                       deb        
+libcurl4                            7.81.0-1ubuntu1.10                       deb        
 libdatrie1                          0.2.13-2                                 deb        
 libdb5.3                            5.3.28+dfsg1-0.8ubuntu3                  deb        
 libdbus-1-3                         1.12.20-2ubuntu4.1                       deb        
@@ -362,8 +367,8 @@ libkrb5-3                           1.19.2-2ubuntu0.1                        deb
 libkrb5support0                     1.19.2-2ubuntu0.1                        deb        
 libksba8                            1.6.0-2ubuntu0.2                         deb        
 liblcms2-2                          2.12~rc1-2build2                         deb        
-libldap-2.5-0                       2.5.13+dfsg-0ubuntu0.22.04.1             deb        
-libldap-common                      2.5.13+dfsg-0ubuntu0.22.04.1             deb        
+libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.1             deb        
+libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.1             deb        
 libllvm15                           1:15.0.6-3~ubuntu0.22.04.2               deb        
 liblocale-gettext-perl              1.07-4build3                             deb        
 libltdl7                            2.4.6-15build2                           deb        
@@ -427,8 +432,8 @@ libpython2-stdlib                   2.7.18-3                                 deb
 libpython2.7-minimal                2.7.18-13ubuntu1.1                       deb        
 libpython2.7-stdlib                 2.7.18-13ubuntu1.1                       deb        
 libpython3-stdlib                   3.10.6-1~22.04                           deb        
-libpython3.10-minimal               3.10.6-1~22.04.2                         deb        
-libpython3.10-stdlib                3.10.6-1~22.04.2                         deb        
+libpython3.10-minimal               3.10.6-1~22.04.2ubuntu1                  deb        
+libpython3.10-stdlib                3.10.6-1~22.04.2ubuntu1                  deb        
 libreadline8                        8.1.2-1                                  deb        
 librsvg2-2                          2.52.5+dfsg-3                            deb        
 librtmp1                            2.4+20151223.gitfa8646d.1-2build4        deb        
@@ -608,6 +613,7 @@ npm-user-validate                   1.0.1                                    npm
 npmlog                              4.1.2                                    npm        
 npmlog                              6.0.2                                    npm        
 number-is-nan                       1.0.1                                    npm        
+numpy                               1.23.5                                   python     
 nw-pre-gyp-module-test              0.0.1                                    npm        
 oauthlib                            3.2.0                                    python     
 obconf                              1:2.0.4+git20150213-2build1              deb        
@@ -635,6 +641,7 @@ path-is-absolute                    1.0.1                                    npm
 path-to-regexp                      0.1.7                                    npm        
 perl-base                           5.34.0-3ubuntu1.1                        deb        
 pinentry-curses                     1.1.1-1build2                            deb        
+pip                                 22.3.1                                   python     
 pkexec                              0.105-33                                 deb        
 policykit-1                         0.105-33                                 deb        
 polkitd                             0.105-33                                 deb        
@@ -651,10 +658,11 @@ proxy-addr                          2.0.7                                    npm
 publicsuffix                        20211207.1025-1                          deb        
 pulseaudio                          1:15.99.1+dfsg1-1ubuntu2                 deb        
 pulseaudio-utils                    1:15.99.1+dfsg1-1ubuntu2                 deb        
+pycodestyle                         2.8.0                                    python     
 pyparsing                           2.4.7                                    python     
 python                              2.7.18                                   binary     
 python                              3.10.6                                   binary     
-python                              3.10.8                                   binary     
+python                              3.10.9                                   binary     
 python-apt                          2.4.0+ubuntu1                            python     
 python-apt-common                   2.4.0ubuntu1                             deb        
 python2                             2.7.18-3                                 deb        
@@ -687,8 +695,8 @@ python3-six                         1.16.0-3ubuntu1                          deb
 python3-software-properties         0.99.22.6                                deb        
 python3-wadllib                     1.3.6-1                                  deb        
 python3-zipp                        1.0.0-3                                  deb        
-python3.10                          3.10.6-1~22.04.2                         deb        
-python3.10-minimal                  3.10.6-1~22.04.2                         deb        
+python3.10                          3.10.6-1~22.04.2ubuntu1                  deb        
+python3.10-minimal                  3.10.6-1~22.04.2ubuntu1                  deb        
 qrcode-terminal                     0.12.0                                   npm        
 qs                                  6.11.0                                   npm        
 range-parser                        1.2.1                                    npm        
@@ -702,6 +710,7 @@ readable-stream                     2.3.8                                    npm
 readable-stream                     3.6.0                                    npm        
 readdir-scoped-modules              1.1.0                                    npm        
 readline-common                     8.1.2-1                                  deb        
+requests                            2.27.1                                   python     
 require-directory                   2.1.1                                    npm        
 require-main-filename               2.0.0                                    npm        
 retry                               0.12.0                                   npm        
@@ -719,6 +728,7 @@ serve-static                        1.15.0                                   npm
 session-migration                   0.3.6                                    deb        
 set-blocking                        2.0.0                                    npm        
 setprototypeof                      1.2.0                                    npm        
+setuptools                          65.5.0                                   python     
 shared-mime-info                    2.1-2                                    deb        
 side-channel                        1.0.4                                    npm        
 signal-exit                         3.0.7                                    npm        
@@ -755,6 +765,7 @@ tar                                 6.1.13                                   npm
 text-table                          0.2.0                                    npm        
 tiny-relative-date                  1.3.0                                    npm        
 toidentifier                        1.0.1                                    npm        
+toml                                0.10.2                                   python     
 tr46                                0.0.3                                    npm        
 treeverse                           2.0.0                                    npm        
 type-is                             1.6.18                                   npm        
@@ -767,6 +778,7 @@ ultron                              1.0.2                                    npm
 unique-filename                     2.0.1                                    npm        
 unique-slug                         3.0.0                                    npm        
 unpipe                              1.0.0                                    npm        
+urllib3                             1.26.8                                   python     
 usrmerge                            25ubuntu2                                deb        
 util-deprecate                      1.0.2                                    npm        
 util-linux                          2.37.2-4ubuntu3                          deb        
@@ -803,8 +815,8 @@ xkb-data                            2.33-1                                   deb
 xorg-sgml-doctools                  1:1.11-1.1                               deb        
 xorgxrdp                            1:0.2.17-1build1                         deb        
 xrdp                                0.9.17-2ubuntu2                          deb        
-xserver-common                      2:21.1.3-2ubuntu2.7                      deb        
-xserver-xorg-core                   2:21.1.3-2ubuntu2.7                      deb        
+xserver-common                      2:21.1.3-2ubuntu2.8                      deb        
+xserver-xorg-core                   2:21.1.3-2ubuntu2.8                      deb        
 xserver-xorg-video-amdgpu           22.0.0-1ubuntu0.1                        deb        
 xserver-xorg-video-ati              1:19.1.0-2ubuntu1                        deb        
 xserver-xorg-video-intel            2:2.99.917+git20210115-1                 deb        
@@ -819,3 +831,4 @@ yargs                               15.4.1                                   npm
 yargs-parser                        18.1.3                                   npm        
 zipp                                1.0.0                                    python     
 zlib1g                              1:1.2.11.dfsg-2ubuntu9.2                 deb        
+zstandard                           0.16.0                                   python     
