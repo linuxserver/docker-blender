@@ -56,18 +56,14 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ✅ | arm32v7-\<version tag\> |
+| armhf | ❌ | |
 
 ## Application Setup
 
 The application can be accessed at:
+
 * http://yourhost:3000/
-
-By default the user/pass is abc/abc, if you change your password or want to login manually to the GUI session for any reason use the following link:
-
-* http://yourhost:3000/?login=true
-
-You can also force login on the '/' path without this parameter by passing the environment variable `-e AUTO_LOGIN=false`.
+* https://yourhost:3001/
 
 ## Hardware Acceleration
 
@@ -77,7 +73,7 @@ This only applies to your desktop experience, this container is capable of suppo
 
 To leverage hardware acceleration you will need to mount /dev/dri video device inside of the conainer.
 ```
---device=/dev/dri:/dev/dri
+--device /dev/dri:/dev/dri
 ```
 We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
 
@@ -92,25 +88,37 @@ We automatically add the necessary environment variable that will utilise all th
 
 Arm devices can run this image, but generally should not mount in /dev/dri. The OpenGL ES version is not high enough to run Blender. The program can run on these platforms though, leveraging CPU LLVMPipe rendering.
 
-Due to lack of arm32/64 binaries from the upstream project, our arm32/64 images install the latest version from the ubuntu repo, which is usually behind and thus the version the image is tagged with does not match the version contained.
+Due to lack of arm64 binaries from the upstream project, our arm64 image installs the latest version from the ubuntu repo, which is usually behind and thus the version the image is tagged with does not match the version contained.
 
-#### Keyboard Layouts
+### Options in all KasmVNC based GUI containers
 
-This should match the layout on the computer you are accessing the container from.
-The keyboard layouts available for use are:
-* da-dk-qwerty- Danish keyboard
-* de-ch-qwertz- Swiss German keyboard (qwertz)
-* de-de-qwertz- German keyboard (qwertz) - **OSK available**
-* en-gb-qwerty- English (UK) keyboard
-* en-us-qwerty- English (US) keyboard - **OSK available** **DEFAULT**
-* es-es-qwerty- Spanish keyboard - **OSK available**
-* fr-ch-qwertz- Swiss French keyboard (qwertz)
-* fr-fr-azerty- French keyboard (azerty) - **OSK available**
-* it-it-qwerty- Italian keyboard - **OSK available**
-* ja-jp-qwerty- Japanese keyboard
-* pt-br-qwerty- Portuguese Brazilian keyboard
-* sv-se-qwerty- Swedish keyboard
-* tr-tr-qwerty- Turkish-Q keyboard
+This container is based on [Docker Baseimage KasmVNC](https://github.com/linuxserver/docker-baseimage-kasmvnc) which means there are additional environment variables and run configurations to enable or disable specific functionality.
+
+#### Optional environment variables
+
+| Variable | Description |
+| :----: | --- |
+| CUSTOM_PORT | Internal port the container listens on for http if it needs to be swapped from the default 3000. |
+| CUSTOM_HTTPS_PORT | Internal port the container listens on for https if it needs to be swapped from the default 3001. |
+| CUSTOM_USER | HTTP Basic auth username, abc is default. |
+| PASSWORD | HTTP Basic auth password, abc is default. If unset there will be no auth |
+| SUBFOLDER | Subfolder for the application if running a subfolder reverse proxy, need both slashes IE `/subfolder/` |
+| TITLE | The page title displayed on the web browser, default "KasmVNC Client". |
+| FM_HOME | This is the home directory (landing) for the file manager, default "/config". |
+| START_DOCKER | If set to false a container with privilege will not automatically start the DinD Docker setup. |
+| DRINODE | If mounting in /dev/dri for [DRI3 GPU Acceleration](https://www.kasmweb.com/kasmvnc/docs/master/gpu_acceleration.html) allows you to specify the device to use IE `/dev/dri/renderD128` |
+
+#### Optional run configurations
+
+| Variable | Description |
+| :----: | --- |
+| `--privileged` | Will start a Docker in Docker (DinD) setup inside the container to use docker in an isolated environment. For increased performance mount the Docker directory inside the container to the host IE `-v /home/user/docker-data:/var/lib/docker`. |
+| `-v /var/run/docker.sock:/var/run/docker.sock` | Mount in the host level Docker socket to either interact with it via CLI or use Docker enabled applications. |
+| `--device /dev/dri:/dev/dri` | Mount a GPU into the container, this can be used in conjunction with the `DRINODE` environment variable to leverage a host video card for GPU accelerated appplications. Only **Open Source** drivers are supported IE (Intel,AMDGPU,Radeon,ATI,Nouveau) |
+
+### Lossless mode
+
+This container is capable of delivering a true lossless image at a high framerate to your web browser by changing the Stream Quality preset to "Lossless", more information [here](https://www.kasmweb.com/docs/latest/how_to/lossless.html#technical-background). In order to use this mode from a non localhost endpoint the HTTPS port on 3001 needs to be used. If using a reverse proxy to port 3000 specific headers will need to be set as outlined [here](https://github.com/linuxserver/docker-baseimage-kasmvnc#lossless).
 
 ## Usage
 
@@ -132,13 +140,11 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
-      - KEYBOARD=en-us-qwerty #optional
     volumes:
       - /path/to/config:/config
     ports:
       - 3000:3000
-    devices:
-      - /dev/dri:/dev/dri #optional
+      - 3001:3001
     restart: unless-stopped
 ```
 
@@ -152,10 +158,9 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/ `#optional` \
-  -e KEYBOARD=en-us-qwerty `#optional` \
   -p 3000:3000 \
+  -p 3001:3001 \
   -v /path/to/config:/config \
-  --device /dev/dri:/dev/dri `#optional` \
   --restart unless-stopped \
   lscr.io/linuxserver/blender:latest
 
@@ -168,13 +173,12 @@ Container images are configured using parameters passed at runtime (such as thos
 | Parameter | Function |
 | :----: | --- |
 | `-p 3000` | Blender desktop gui |
+| `-p 3001` | Blender desktop gui HTTPS |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `-e SUBFOLDER=/` | Specify a subfolder to use with reverse proxies, IE `/subfolder/` |
-| `-e KEYBOARD=en-us-qwerty` | See the keyboard layouts section for more information and options. |
 | `-v /config` | Users home directory in the container, stores local files and settings |
-| `--device /dev/dri` | Add this for hardware acceleration (Linux hosts only) |
 | `--security-opt seccomp=unconfined` | For Docker Engine only, this may be required depending on your Docker and storage configuration. |
 
 ## Environment variables from files (Docker secrets)
@@ -286,6 +290,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **18.03.23:** - Rebase to KasmVNC base image.
 * **13.12.22:** - Rebase to Jammy, migrate to s6v3.
 * **06.05.22:** - Use the full semver version in image tags. Arm32/64 version tags are inaccurate due to installing from ubuntu repo, which is usually behind.
 * **12.03.22:** - Initial Release.
