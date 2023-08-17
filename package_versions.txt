@@ -1032,6 +1032,7 @@ pulseaudio-utils                                                              1:
 pulseaudio2                                                                   0.5.5                                               npm        
 pycodestyle                                                                   2.8.0                                               python     
 pyparsing                                                                     2.4.7                                               python     
+python                                                                        3.10.12                                             binary     
 python-apt                                                                    2.4.0+ubuntu2                                       python     
 python-apt-common                                                             2.4.0ubuntu2                                        deb        
 python3                                                                       3.10.6-1~22.04                                      deb        
