@@ -29,7 +29,7 @@ NAME                                                                          VE
 @tufjs/models                                                                 1.0.4                                     npm        
 @types/cookie                                                                 0.4.1                                     npm        
 @types/cors                                                                   2.8.14                                    npm        
-@types/node                                                                   20.6.3                                    npm        
+@types/node                                                                   20.8.0                                    npm        
 Cython                                                                        0.29.30                                   python     
 PyGObject                                                                     3.42.1                                    python     
 PyJWT                                                                         2.3.0                                     python     
