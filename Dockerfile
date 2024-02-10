@@ -13,6 +13,10 @@ LABEL maintainer="thelamer"
 ENV TITLE=Blender
 
 RUN \
+  echo "**** add icon ****" && \
+  curl -o \
+    /kclient/public/icon.png \
+    https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/blender-icon.png && \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -22,8 +26,8 @@ RUN \
   echo "**** install blender ****" && \
   mkdir /blender && \
   if [ -z ${BLENDER_VERSION+x} ]; then \
-    BLENDER_VERSION=$(curl -sL https://mirrors.ocf.berkeley.edu/blender/source/ \
-      | awk -F'"|/"' '/blender-[0-9]*\.[0-9]*\.[0-9]*\.tar\.xz/ && !/md5sum/ {print $4}' \
+    BLENDER_VERSION=$(curl -sL https://mirrors.iu13.net/blender/source/ \
+      | awk -F'"|/"' '/blender-[0-9]*\.[0-9]*\.[0-9]*\.tar\.xz/ && !/md5sum/ {print $8}' \
       | tail -1 \
       | sed 's|blender-||' \
       | sed 's|\.tar\.xz||'); \
@@ -31,7 +35,7 @@ RUN \
   BLENDER_FOLDER=$(echo "Blender${BLENDER_VERSION}" | sed -r 's|(Blender[0-9]*\.[0-9]*)\.[0-9]*|\1|') && \
   curl -o \
     /tmp/blender.tar.xz -L \
-    "https://mirrors.ocf.berkeley.edu/blender/release/${BLENDER_FOLDER}/blender-${BLENDER_VERSION}-linux-x64.tar.xz" && \
+    "https://mirrors.iu13.net/blender/release/${BLENDER_FOLDER}/blender-${BLENDER_VERSION}-linux-x64.tar.xz" && \
   tar xf \
     /tmp/blender.tar.xz -C \
     /blender/ --strip-components=1 && \
