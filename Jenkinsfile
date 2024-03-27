@@ -115,7 +115,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sL https://mirrors.iu13.net/blender/source/ | awk -F'"|/"' '/blender-[0-9]*\\.[0-9]*\\.[0-9]*\\.tar\\.xz/ && !/md5sum/ {print $8}' | tail -1 | sed 's|blender-||' | sed 's|\\.tar\\.xz||' ''',
+            script: ''' curl -s https://projects.blender.org/api/v1/repos/blender/blender/tags | jq -r '.[] | select(.name | contains("-rc") | not) | .name' | sed 's|^v||g' | sort -rV | head -1 ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
