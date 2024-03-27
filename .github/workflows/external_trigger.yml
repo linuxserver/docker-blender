@@ -20,7 +20,7 @@ jobs:
           echo "**** External trigger running off of master branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_BLENDER_MASTER\". ****"
           echo "External trigger running off of master branch. To disable this trigger, set a Github secret named \`PAUSE_EXTERNAL_TRIGGER_BLENDER_MASTER\`" >> $GITHUB_STEP_SUMMARY
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -sL https://mirrors.iu13.net/blender/source/ | awk -F'"|/"' '/blender-[0-9]*\.[0-9]*\.[0-9]*\.tar\.xz/ && !/md5sum/ {print $8}' | tail -1 | sed 's|blender-||' | sed 's|\.tar\.xz||')
+          EXT_RELEASE=$(curl -s https://projects.blender.org/api/v1/repos/blender/blender/tags | jq -r '.[] | select(.name | contains("-rc") | not) | .name' | sed 's|^v||g' | sort -rV | head -1)
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for blender branch master"
