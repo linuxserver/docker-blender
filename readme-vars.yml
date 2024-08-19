@@ -19,12 +19,9 @@ development_versions: false
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
-param_usage_include_env: true
-param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London" }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/config", desc: "Users home directory in the container, stores local files and settings" }
+  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores local files and settings" }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "3000", internal_port: "3000", port_desc: "Blender desktop gui" }
@@ -120,6 +117,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "19.08.24:", desc: "Rebase to noble." }
   - { date: "10.02.24:", desc: "Update Readme with new env vars and ingest proper PWA icon." }
   - { date: "18.03.23:", desc: "Rebase to KasmVNC base image." }
   - { date: "13.12.22:", desc: "Rebase to Jammy, migrate to s6v3." }
