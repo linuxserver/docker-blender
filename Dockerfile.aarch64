@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:arm64v8-ubuntujammy
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:arm64v8-ubuntunoble
 
 # set version label
 ARG BUILD_DATE
@@ -21,6 +21,7 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     blender && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/* \
