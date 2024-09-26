@@ -525,6 +525,7 @@ iproute2                                                                      6.
 iptables                                                                      1.8.10-3ubuntu2                         deb                         
 iso-codes                                                                     4.16.0-1                                deb                         
 jake                                                                          10.9.2                                  npm                         
+jq                                                                            1.7.1                                   binary                      
 jq                                                                            1.7.1-3build1                           deb                         
 k8s.io/api                                                                    v0.26.2                                 go-module                   
 k8s.io/api                                                                    v0.29.2                                 go-module                   
