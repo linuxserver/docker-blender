@@ -80,6 +80,13 @@ jobs:
             echo "New version \`${EXT_RELEASE}\` found; but there already seems to be an active build on Jenkins; exiting" >> $GITHUB_STEP_SUMMARY
             exit 0
           else
+            BLENDER_FOLDER=$(echo "Blender${EXT_RELEASE}" | sed -r 's|(Blender[0-9]*\.[0-9]*)\.[0-9]*|\1|')
+            ASSETS=$(curl -o /dev/null -sI -w "%{http_code}\n" "https://mirror.clarkson.edu/blender/release/${BLENDER_FOLDER}/blender-${EXT_RELEASE}-linux-x64.tar.xz")
+            if [ ${ASSETS} == "200" ]; then
+              artifacts_found="true"
+            else
+              artifacts_found="false"
+            fi
             if [[ "${artifacts_found}" == "false" ]]; then
               echo "> [!WARNING]" >> $GITHUB_STEP_SUMMARY
               echo "> New version detected, but not all artifacts are published yet; skipping trigger" >> $GITHUB_STEP_SUMMARY
