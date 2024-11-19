@@ -33,7 +33,7 @@ apt                                                                           2.
 apt-utils                                                                     2.7.14build2                            deb                         
 array-flatten                                                                 1.1.1                                   npm                         
 async                                                                         3.2.6                                   npm                         
-autopep8                                                                      1.6.0                                   python                      
+autopep8                                                                      2.3.1                                   python                      
 balanced-match                                                                1.0.2                                   npm                         
 base-files                                                                    13ubuntu10.1                            deb                         
 base-passwd                                                                   3.6.3build1                             deb                         
@@ -1049,7 +1049,7 @@ perl                                                                          5.
 perl-base                                                                     5.38.2-3.2build2                        deb                         
 perl-modules-5.38                                                             5.38.2-3.2build2                        deb                         
 pinentry-curses                                                               1.2.1-3ubuntu5                          deb                         
-pip                                                                           23.2.1                                  python                      
+pip                                                                           24.0                                    python                      
 polkitd                                                                       124-2ubuntu1                            deb                         
 poppler-data                                                                  0.4.12-1                                deb                         
 poppler-utils                                                                 24.02.0-1ubuntu9.1                      deb                         
@@ -1060,11 +1060,11 @@ publicsuffix                                                                  20
 pulseaudio                                                                    1:16.1+dfsg1-2ubuntu10                  deb                         
 pulseaudio-utils                                                              1:16.1+dfsg1-2ubuntu10                  deb                         
 pulseaudio2                                                                   0.5.5                                   npm                         
-pycodestyle                                                                   2.8.0                                   python                      
+pycodestyle                                                                   2.12.1                                  python                      
 pygobject                                                                     3.48.2                                  python                      
 pyjwt                                                                         2.7.0                                   python                      
 pyparsing                                                                     3.1.1                                   python                      
-python                                                                        3.11.7                                  binary                      
+python                                                                        3.11.9                                  binary                      
 python-apt                                                                    2.7.7+ubuntu3                           python                      
 python-apt-common                                                             2.7.7ubuntu3                            deb                         
 python3                                                                       3.12.3-0ubuntu2                         deb                         
