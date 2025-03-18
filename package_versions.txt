@@ -92,7 +92,7 @@ cups-ipp-utils                                                                2.
 cups-ppdc                                                                     2.4.7-1.2ubuntu7.3                      deb                         
 cups-server-common                                                            2.4.7-1.2ubuntu7.3                      deb                         
 curl                                                                          8.5.0-2ubuntu10.6                       deb                         
-cython                                                                        0.29.30                                 python                      
+cython                                                                        3.0.11                                  python                      
 dario.cat/mergo                                                               v1.0.0                                  go-module                   
 dario.cat/mergo                                                               v1.0.1                                  go-module  (+1 duplicate)   
 dash                                                                          0.5.12-6ubuntu5                         deb                         
@@ -1065,7 +1065,7 @@ node-cjs-module-lexer                                                         1.
 node-undici                                                                   5.26.3+dfsg1+~cs23.10.12-2              deb                         
 node-xtend                                                                    4.0.2-3                                 deb                         
 nodejs                                                                        18.19.1+dfsg-6ubuntu5                   deb                         
-numpy                                                                         1.24.3                                  python                      
+numpy                                                                         1.26.4                                  python                      
 oauthlib                                                                      3.2.2                                   python                      
 object-assign                                                                 4.1.1                                   npm                         
 object-inspect                                                                1.13.4                                  npm                         
@@ -1099,7 +1099,7 @@ pycodestyle                                                                   2.
 pygobject                                                                     3.48.2                                  python                      
 pyjwt                                                                         2.7.0                                   python                      
 pyparsing                                                                     3.1.1                                   python                      
-python                                                                        3.11.9                                  binary                      
+python                                                                        3.11.11                                 binary                      
 python-apt                                                                    2.7.7+ubuntu4                           python                      
 python-apt-common                                                             2.7.7ubuntu4                            deb                         
 python3                                                                       3.12.3-0ubuntu2                         deb                         
@@ -1174,7 +1174,6 @@ tags.cncf.io/container-device-interface/specs-go                              v0
 tags.cncf.io/container-device-interface/specs-go                              v0.8.0                                  go-module                   
 tar                                                                           1.35+dfsg-3build1                       deb                         
 toidentifier                                                                  1.0.1                                   npm                         
-toml                                                                          0.10.2                                  python                      
 type-is                                                                       1.6.18                                  npm                         
 tzdata                                                                        2024b-0ubuntu0.24.04.1                  deb                         
 ubuntu-keyring                                                                2023.11.28.1                            deb                         
