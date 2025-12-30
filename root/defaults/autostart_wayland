@@ -1,0 +1,1 @@
+blender --python-expr "import bpy; bpy.context.preferences.inputs.use_mouse_continuous = False"
