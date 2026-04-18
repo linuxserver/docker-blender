@@ -640,6 +640,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.04.26:** - Rebase to resolute.
 * **29.03.26:** - Make Wayland default disable with PIXELFLUX_WAYLAND=false.
 * **27.12.25:** - Add wayland init logic.
 * **12.07.25:** - Rebase to Selkies, HTTPS IS NOW REQUIRED.

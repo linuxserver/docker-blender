@@ -108,6 +108,7 @@ init_diagram: |
   "blender:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "19.04.26:", desc: "Rebase to resolute."}
   - {date: "29.03.26:", desc: "Make Wayland default disable with PIXELFLUX_WAYLAND=false."}
   - {date: "27.12.25:", desc: "Add wayland init logic."}
   - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}
