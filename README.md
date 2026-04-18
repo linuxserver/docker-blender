@@ -58,8 +58,10 @@ The architectures supported by this image are:
 
 The application can be accessed at:
 
-* http://yourhost:3000/
 * https://yourhost:3001/
+
+>[!NOTE]
+>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date.
 
 ### Strict reverse proxies
 
