@@ -31,14 +31,7 @@ selkies_blurb: true
 show_nvidia: true
 # application setup block
 app_setup_block_enabled: true
-app_setup_block: |
-  The application can be accessed at:
-
-  * https://yourhost:3001/
-
-  >[!NOTE]
-  >The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. 
-
+app_setup_block: "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!NOTE]\n>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. \n"
 # init diagram
 init_diagram: |
   "blender:latest": {
@@ -106,7 +99,7 @@ init_diagram: |
     svc-xsettingsd -> legacy-services
   }
   Base Images: {
-    "baseimage-selkies:ubuntunoble" <- "baseimage-ubuntu:noble"
+    "baseimage-selkies:ubunturesolute" <- "baseimage-ubuntu:resolute"
   }
   "blender:latest" <- Base Images
 # changelog
