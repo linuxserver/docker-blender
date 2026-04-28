@@ -34,8 +34,11 @@ app_setup_block_enabled: true
 app_setup_block: |
   The application can be accessed at:
 
-  * http://yourhost:3000/
   * https://yourhost:3001/
+
+  >[!NOTE]
+  >The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. 
+
 # init diagram
 init_diagram: |
   "blender:latest": {
@@ -108,6 +111,7 @@ init_diagram: |
   "blender:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "19.04.26:", desc: "Rebase to resolute."}
   - {date: "29.03.26:", desc: "Make Wayland default disable with PIXELFLUX_WAYLAND=false."}
   - {date: "27.12.25:", desc: "Add wayland init logic."}
   - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}

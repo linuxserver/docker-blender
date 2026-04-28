@@ -58,8 +58,10 @@ The architectures supported by this image are:
 
 The application can be accessed at:
 
-* http://yourhost:3000/
 * https://yourhost:3001/
+
+>[!NOTE]
+>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date.
 
 ### Strict reverse proxies
 
@@ -640,6 +642,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.04.26:** - Rebase to resolute.
 * **29.03.26:** - Make Wayland default disable with PIXELFLUX_WAYLAND=false.
 * **27.12.25:** - Add wayland init logic.
 * **12.07.25:** - Rebase to Selkies, HTTPS IS NOW REQUIRED.
