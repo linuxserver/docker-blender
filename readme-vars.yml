@@ -31,7 +31,7 @@ selkies_blurb: true
 show_nvidia: true
 # application setup block
 app_setup_block_enabled: true
-app_setup_block: "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!NOTE]\n>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. \n"
+app_setup_block: "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!NOTE]\n>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. \n\nThis image can also be deployed with one click using the official [Easypanel](https://easypanel.io/) template, available at https://easypanel.io/templates/blender.\n"
 # init diagram
 init_diagram: |
   "blender:latest": {
